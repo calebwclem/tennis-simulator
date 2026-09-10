@@ -5,6 +5,7 @@
 #include "Game.hpp"
 #include "Player.hpp"
 #include "Score.hpp"
+#include "Set.hpp"
 
 namespace {
 
@@ -55,9 +56,16 @@ int main()
 
     // Diagnostic starter: this completed vertical slice shows how a
     // Competition returns a polymorphic Score and how ownership is released.
-    std::cout << "\nDiagnostic run: Game::play followed by GameScore::print\n";
+    /*std::cout << "\nDiagnostic run: Game::play followed by GameScore::print\n";
     Game game(&playerA, &playerB);
     Score *score = game.play(&playerA);
+    score->print();
+    delete score;*/
+
+
+    //TESTING SET
+    Set set(&playerA, &playerB);
+    Score *score = set.play(&playerA);
     score->print();
     delete score;
 

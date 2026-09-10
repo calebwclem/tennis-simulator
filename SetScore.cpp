@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <cstdlib>
 
 SetScore::SetScore(Player *player1, Player *player2)
     : Score(player1, player2), tieScore(nullptr)
@@ -15,7 +16,6 @@ SetScore::~SetScore()
 
 bool SetScore::haveAWinner() const
 {
-    // TODO: Implement the ordinary set rule and the completed tie-break case.
     int p1 = player1Score();
     int p2 = player2Score();
 
