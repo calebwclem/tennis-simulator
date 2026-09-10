@@ -16,13 +16,28 @@ SetScore::~SetScore()
 bool SetScore::haveAWinner() const
 {
     // TODO: Implement the ordinary set rule and the completed tie-break case.
+    int p1 = player1Score();
+    int p2 = player2Score();
+
+    //If a tie breaker has been played, the winner won:
+    if(tieScore != nullptr)
+    {
+        return tieScore->haveAWinner();
+    }
+
+    //Otherwise, we play the game as normal, and if both players have 6 games, we play a tie breaker:
+    if((p1 >= 6 || p2 >=6) && std::abs(p1 - p2) >= 2)
+    {
+        return true;
+    }
+
     return false;
 }
 
 bool SetScore::shouldPlayATieBreaker() const
 {
-    // TODO: A tie-break is played when both players have won six games.
-    return false;
+    //We only play a tie breaker if both players have 6 games, and we haven't played a tie breaker yet:
+    return player1Score() == 6 && player2Score() == 6;
 }
 
 void SetScore::addTieScore(Score *score)
