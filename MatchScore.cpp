@@ -23,9 +23,6 @@ bool MatchScore::haveAWinner() const
 
 void MatchScore::addSetScore(Score *score)
 {
-    // TODO: Validate score and capacity, record its winner, store score, and
-    // transfer ownership to this MatchScore only after validation succeeds.
-    //(void)score;
     if(score == nullptr){
         throw std::invalid_argument("The set score must not be null.");
     }
@@ -47,20 +44,13 @@ void MatchScore::print() const
 
     if(getWinner() == player1()){
         std::cout << "\nPlayer A wins the match " 
-                  << player1Score() << '\n';
+                  << player1Score() << " sets to "
+                  << player2Score() << '\n';
     }
     else{
         std::cout << "\nPlayer B wins the match "
-                  << player2Score() << '\n';
+                  << player2Score() << " sets to "
+                  << player1Score() << '\n';
     }
 
-
-    /*// Diagnostic output: students will adapt this to the final transcript.
-    std::cout << "MatchScore::print begins\n";
-    for (int i = 0; i < setNumber; ++i) {
-        scores[i]->print();
-    }
-    std::cout << "Player A sets = " << player1Score() << '\n'
-              << "Player B sets = " << player2Score() << '\n'
-              << "MatchScore::print ends\n";*/
 }

@@ -17,11 +17,7 @@ bool TieBreakerScore::haveAWinner() const{
 }
 
 void TieBreakerScore::print() const{
-    /*std::cout << "TieBreakerScore::print begins\n"
-              << "Player A score = " << player1Score() << '\n'
-              << "Player B score = " << player2Score() << '\n'
-              << "TieBreakerScore::print ends\n";*/
-    std::cout << std::setw(16) << "(tue breaker "
+    std::cout << std::setw(16) << "(tie breaker  "
               << player1Score() << '-' << player2Score() 
               << ')';
 }
