@@ -5,6 +5,8 @@
 #include "Game.hpp"
 #include "Player.hpp"
 #include "Score.hpp"
+#include "Set.hpp"
+#include "Match.hpp"
 
 namespace {
 
@@ -53,16 +55,12 @@ int main()
     Player playerA(playerAProbability);
     Player playerB(playerBProbability);
 
-    // Diagnostic starter: this completed vertical slice shows how a
-    // Competition returns a polymorphic Score and how ownership is released.
-    std::cout << "\nDiagnostic run: Game::play followed by GameScore::print\n";
-    Game game(&playerA, &playerB);
-    Score *score = game.play(&playerA);
+    std::cout << "   Set No.    Player A          Player B\n";
+
+    Match match(&playerA, &playerB);
+    Score *score = match.play(&playerA);
     score->print();
     delete score;
-
-    // TODO: Replace the diagnostic Game with a Match, play the entire match,
-    // and print the transcript required by the project specification.
 
     return 0;
 }
