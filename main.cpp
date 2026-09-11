@@ -6,6 +6,7 @@
 #include "Player.hpp"
 #include "Score.hpp"
 #include "Set.hpp"
+#include "Match.hpp"
 
 namespace {
 
@@ -62,14 +63,15 @@ int main()
     score->print();
     delete score;*/
 
-    //TESTING SET
-    Set set(&playerA, &playerB);
-    Score *score = set.play(&playerA);
-    score->print();
-    delete score;
-
     // TODO: Replace the diagnostic Game with a Match, play the entire match,
     // and print the transcript required by the project specification.
+
+    std::cout << "   Set No.    Player A          Player B\n";
+
+    Match match(&playerA, &playerB);
+    Score *score = match.play(&playerA);
+    score->print();
+    delete score;
 
     return 0;
 }

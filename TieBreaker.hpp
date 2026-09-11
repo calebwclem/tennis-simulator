@@ -12,6 +12,7 @@ public:
     TieBreaker(Player *player1, Player *player2);
 
     Score *play(Player *firstServer) override;
+
 };
 
 #endif
