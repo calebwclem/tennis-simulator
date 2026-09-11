@@ -16,15 +16,25 @@ MatchScore::~MatchScore()
 
 bool MatchScore::haveAWinner() const
 {
-    // TODO: A match ends when either player has won three sets.
-    return false;
+    //A match ends when one player has won at least 3 sets
+    return player1Score() >= 3 || player2Score() >= 3;
 }
 
 void MatchScore::addSetScore(Score *score)
 {
     // TODO: Validate score and capacity, record its winner, store score, and
     // transfer ownership to this MatchScore only after validation succeeds.
-    (void)score;
+    //(void)score;
+    if(score == nullptr){
+        throw std::invalid_argument("The set score must not be null.");
+    }
+    if(setNumber >= maximumSets){
+        throw std::logic_error("This match already has the maximum number of sets:");
+    }
+
+    addScore(score->getWinner());
+    scores[setNumber] = score;
+    ++setNumber;
 }
 
 void MatchScore::print() const

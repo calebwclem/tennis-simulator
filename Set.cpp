@@ -39,7 +39,5 @@ Score *Set::play(Player *firstServer)
         }
     }
 
-    //(void)firstServer;
     return setScore;
-
 }
