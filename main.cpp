@@ -62,7 +62,6 @@ int main()
     score->print();
     delete score;*/
 
-
     //TESTING SET
     Set set(&playerA, &playerB);
     Score *score = set.play(&playerA);
